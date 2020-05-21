@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CourseDetailsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/constraint_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/course_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/placeholder_small" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/course_image"
+                android:background="@android:color/white"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@color/colorPrimary"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@android:color/black"
+                app:tabTextAppearance="@style/MyCustomTabText"
+                app:tabTextColor="#949292" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="550dp"
+                android:layout_below="@+id/tabs"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TextView
+            android:id="@+id/course_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Rs.49999/-"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/watch_demo_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/course_title" />
+
+        <TextView
+            android:id="@+id/cutted_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Rs.59999/-"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/course_price"
+            app:layout_constraintStart_toEndOf="@+id/course_price"
+            app:layout_constraintTop_toTopOf="@+id/course_price" />
+
+
+        <View
+            android:id="@+id/view_cutted"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#80ffffff"
+            app:layout_constraintBottom_toBottomOf="@+id/cutted_price"
+            app:layout_constraintEnd_toEndOf="@+id/cutted_price"
+            app:layout_constraintStart_toStartOf="@+id/cutted_price"
+            app:layout_constraintTop_toTopOf="@+id/cutted_price" />
+
+        <TextView
+            android:id="@+id/watch_demo_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:drawableStart="@drawable/ic_video"
+            android:drawablePadding="4dp"
+            android:text="Watch Demo"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buy_now_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:stateListAnimator="@null"
+            android:text="   buy now   "
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
